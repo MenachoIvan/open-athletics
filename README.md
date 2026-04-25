@@ -8,11 +8,18 @@ While most platforms focus on social features and basic summaries, OpenAthletics
 
 ## Tech Stack
 
--**Framework:** Next.js 15 (App router) -**Languaje:** Typescript -**Auth:** Strava OAuth 2.0 (NextAuth.js) -**Data Visualization:** Recharts / D3.js -**Math & Stats:** simple-statistics
+- **Framework:** Next.js 15 (App router)
+- **Languaje:** Typescript
+- **Auth:** Strava OAuth 2.0 (NextAuth.js)
+- **Data Visualization:** Recharts / D3.js
+- **Math & Stats:** simple-statistics
 
 ## Planned Features (Roadmap)
 
--**Aerobic Decoupling (Pa:HR):** Analyze cardiac drift by comparing efficiency factor (EF) between the first and second half of steady-state runs. -**Grade-Adjusted Analysis:** Correlation betwene slope, vertical oscillation (if available), and cadence. -**Pace Variability Index:** Measuring the stability of efforts during interval training. -**Data Integrity Check:** Automated sensor of anomalies (GPS drift of HR spikes).
+- **Aerobic Decoupling (Pa:HR):** Analyze cardiac drift by comparing efficiency factor (EF) between the first and second half of steady-state runs.
+- **Grade-Adjusted Analysis:** Correlation betwene slope, vertical oscillation (if available), and cadence.
+- **Pace Variability Index:** Measuring the stability of efforts during interval training.
+- **Data Integrity Check:** Automated sensor of anomalies (GPS drift of HR spikes).
 
 ## Development setup
 
