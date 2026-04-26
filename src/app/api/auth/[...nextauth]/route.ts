@@ -1,5 +1,4 @@
-import NextAuth, { NextAuthOptions, Session, Account } from 'next-auth';
-import JWT from 'next-auth/jwt';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import StravaProvider from 'next-auth/providers/strava';
 
 export const authOptions: NextAuthOptions = {
