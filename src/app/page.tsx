@@ -1,32 +1,45 @@
-'use client';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from './api/auth/[...nextauth]/route';
+import { getAthleteActivities } from '@/lib/strava';
+import { StravaActivity } from '@/types/strava';
+import LoginButton from '@/components/auth/LoginButton';
+import LogoutButton from '@/components/auth/LogOutButton';
 
-import { signIn, signOut, useSession } from "next-auth/react";
+export default async function HomePage() {
+  const session = await getServerSession(authOptions);
 
-export default function Home() {
-  const { data: session } = useSession();
+  if (!session) {
+    return (
+      <main className="p-10">
+        <h1 className="text-2xl font-bold">Welcome to OpenAthletics 🏃‍♂️</h1>
+        <p>Log in to see your activities</p>
+        <LoginButton />
+      </main>
+    );
+  }
+
+  const activities: StravaActivity[] = await getAthleteActivities(session.accessToken as string);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold mb-8">OpenAthletics 🏃‍♂️</h1>
+    <main className="p-10">
+      <h1 className="text-2xl font-bold mb-6">Last activities 📊</h1>
 
-      {session ? (
-        <div className="text-center">
-          <p className="mb-4">Welcome, {session.user?.name}</p>
-          <button 
-            onClick={() => signOut()}
-            className="bg-red-500 text-white px-4 py-2 rounded"
-          >
-            Log out
-          </button>
-        </div>
-      ) : (
-        <button 
-          onClick={() => signIn('strava')}
-          className="bg-[#FC6100] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#e55a00] transition-colors"
-        >
-          Connect with Strava
-        </button>
-      )}
+      <div className="grid gap-4">
+        {activities.length > 0 ? (
+          activities.map((activity) => (
+            <div key={activity.id} className="border p-4 rounded shadow-sm">
+              <h2 className="font-semibold text-lg">{activity.name}</h2>
+              <p className="text-gray-600">Distance: {(activity.distance / 1000).toFixed(2)} km</p>
+              {activity.has_heartrate && (
+                <p className="text-red-500">HR: {activity.average_heartrate} bpm</p>
+              )}
+            </div>
+          ))
+        ) : (
+          <p>Not found recent activities</p>
+        )}
+      </div>
+      <LogoutButton />
     </main>
   );
 }
