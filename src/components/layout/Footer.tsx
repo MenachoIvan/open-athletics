@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white py-8 px-4">
+    <footer className="border-t border-gray-200/50 bg-white py-8 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <p className="text-gray-900 font-bold text-lg">OpenAthletics</p>
