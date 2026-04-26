@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// 1. Importamos nuestro proveedor
 import { AuthProvider } from "@/components/layout/AuthProvider";
 
 const geistSans = Geist({
