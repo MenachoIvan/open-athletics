@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="absolute -bottom-60 -right-20 w-[500px] h-[500px] bg-[#FFE0D1] rounded-full filter blur-[160px] opacity-20"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[95vh] py-20 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[85vh] py-20 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

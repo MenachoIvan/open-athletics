@@ -2,13 +2,19 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from './api/auth/[...nextauth]/route';
 import { getAthleteActivities } from '@/lib/strava';
 import Hero from '@/components/layout/Hero';
+import Mission from '@/components/layout/Mission';
 import LogoutButton from '@/components/auth/LogOutButton';
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    return <Hero />;
+    return (
+      <>
+        <Hero />
+        <Mission />
+      </>
+    );
   }
 
   const activities = await getAthleteActivities(session.accessToken as string);
