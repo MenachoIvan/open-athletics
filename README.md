@@ -26,7 +26,7 @@ While most platforms focus on social features and basic summaries, OpenAthletics
 1. **Clone the repository:**
 
 ```bash
-git clone [https://github.com/MenachoIvan/open-athletics.git] (https://github.com/MenachoIvan/open-athletics.git)
+git clone https://github.com/MenachoIvan/open-athletics.git
 cd open-athletics
 ```
 
