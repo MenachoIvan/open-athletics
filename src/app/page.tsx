@@ -4,6 +4,7 @@ import { getAthleteActivities } from '@/lib/strava';
 import Hero from '@/components/layout/Hero';
 import Mission from '@/components/layout/Mission';
 import LogoutButton from '@/components/auth/LogOutButton';
+import { EmptyState } from '@/components/ui/EmptyState';
 
 export default async function HomePage() {
   const session = await getServerSession(authOptions);
@@ -45,7 +46,7 @@ export default async function HomePage() {
             </div>
           ))
         ) : (
-          <p className="text-center py-20 text-gray-500">No recent activities found.</p>
+          <EmptyState />
         )}
       </div>
     </main>
