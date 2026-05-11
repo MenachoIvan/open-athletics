@@ -2,6 +2,11 @@
 
 First off, thank you for considering contributing to OpenAthletics! It's people like you who make this a great tool for the athletic community.
 
+## Branching Policy
+
+> [!IMPORTANT]
+> All Pull Requests must be targeted to the **\`dev\`** branch. The \`main\` branch is reserved for stable production releases.
+
 ## Code of Conduct
 
 By participating in this project, you agree to maintain a respectful and inclusive environment for everyone.
@@ -22,9 +27,12 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 1. Look for issues labeled `good first issue`.
 2. Fork the repository.
-3. Create a new branch: `git checkout -b feature/your-feature-name` or `fix/your-fix-name`.
+3. **Important**: Create your feature branch based on the **\`dev\`** branch:
+   `git checkout dev`
+   `git pull origin dev`
+   `git checkout -b feature/your-feature-name`
 4. Make your changes and commit them: `git commit -m "feat: add heart rate zones logic"`.
-5. Push to your fork and submit a **Pull Request**.
+5. Push to your fork and submit a **Pull Request** to our **\`dev\`** branch.
 
 ## Style Guidelines
 
