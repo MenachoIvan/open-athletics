@@ -1,55 +1,65 @@
 # OpenAthletics
 
-**OpenAthletics** is an open-source advanced analytics engine for runners. Built by developers for performance-driven athletes, it bridges the gap between raw GPS data and physiological insights.
+OpenAthletics is an open-source performance dashboard designed for athletes who want a clean, fast, and high-contrast view of their training data. Built with **Next.js**, **Tailwind CSS**, and the **Strava API**.
 
-## The Mission
+The goal is to provide a "zero-bloat" alternative to heavy fitness apps, focusing on raw performance metrics and aerobic efficiency.
 
-While most platforms focus on social features and basic summaries, OpenAthletics processes second-by-second **Data Streams** (HR, Pace, Cadence, Grade) to calculate metrics typically hidden behind paywalls or complex coaching software.
+## Features
 
-## Tech Stack
+- **Fast Synchronization**: Direct integration with Strava API using Server Components.
+- **Modern Dashboard**: High-impact UI inspired by technical sports gear.
+- **Optimized Metrics**: Custom logic to calculate weekly, monthly, and yearly volume without heavy external libraries.
+- **Privacy Focused**: Secure server-side token handling.
 
-- **Framework:** Next.js 15 (App router)
-- **Languaje:** Typescript
-- **Auth:** Strava OAuth 2.0 (NextAuth.js)
-- **Data Visualization:** Recharts / D3.js
-- **Math & Stats:** simple-statistics
+## 🛠 Tech Stack
 
-## Planned Features (Roadmap)
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Auth**: [NextAuth.js](https://next-auth.js.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-- **Aerobic Decoupling (Pa:HR):** Analyze cardiac drift by comparing efficiency factor (EF) between the first and second half of steady-state runs.
-- **Grade-Adjusted Analysis:** Correlation betwene slope, vertical oscillation (if available), and cadence.
-- **Pace Variability Index:** Measuring the stability of efforts during interval training.
-- **Data Integrity Check:** Automated sensor of anomalies (GPS drift of HR spikes).
+## Getting Started
 
-## Development setup
+### Prerequisites
 
-1. **Clone the repository:**
+- Node.js 18+
+- A Strava Developer Account (to get your Client ID and Secret)
 
-```bash
-git clone https://github.com/MenachoIvan/open-athletics.git
-cd open-athletics
-```
+### Installation
 
-2. **Install Dependencies:**
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/MenachoIvan/open-athletics.git
+   cd open-athletics
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Environment Variables:**
+   Create a `.env.local` file in the root and add:
+   ```env
+   STRAVA_CLIENT_ID=your_id
+   STRAVA_CLIENT_SECRET=your_secret
+   NEXTAUTH_SECRET=your_random_string
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+4. **Run development server:**
+   ```bash
+   npm run dev
+   ```
 
-```bash
-npm install
-```
+## Roadmap
 
-3. **Enviornment Variables:**
-   Create a `.env.local` file with your Stava API credentials:
+- [ ] Implement Heart Rate Zones analysis.
+- [ ] Add Loading Skeletons for better UX.
+- [ ] Create specialized views for Cycling vs Running.
+- [ ] Exportable training reports (PDF/CSV).
 
-```bash
-STRAVA_CLIENT_ID=your_id
-STRAVA_CLIENT_SECRET=your_secret
-NEXTAUTH_SECRET=your_random_secret
-NEXTAUTH_URL=http://localhost:3000
-```
+## Contributing
 
-4. **Run the development server:**
+We love contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
-```bash
-npm run dev
-```
+## License
 
-_Developed by engineers who run_
+This project is licensed under the MIT License.
