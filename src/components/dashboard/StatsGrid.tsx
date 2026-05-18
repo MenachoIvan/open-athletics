@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react';
 import { StravaActivity } from '@/types/strava';
+import { getStartOfWeek, getStartOfMonth, getStartOfYear } from '@/lib/date-utils';
 
 interface StatsGridProps {
   activities: StravaActivity[];
@@ -10,17 +11,10 @@ interface StatsGridProps {
 export default function StatsGrid({ activities }: StatsGridProps) {
   const stats = useMemo(() => {
     const now = new Date();
-    const currentYear = now.getFullYear();
-    const currentMonth = now.getMonth();
 
-    const startOfWeek = new Date(now);
-    const day = now.getDay();
-    const diff = day === 0 ? 6 : day - 1;
-    startOfWeek.setDate(now.getDate() - diff);
-    startOfWeek.setHours(0, 0, 0, 0);
-
-    const startOfMonth = new Date(currentYear, currentMonth, 1);
-    const startOfYear = new Date(currentYear, 0, 1);
+    const startOfWeek = getStartOfWeek(now);
+    const startOfMonth = getStartOfMonth(now);
+    const startOfYear = getStartOfYear(now);
 
     return activities.reduce(
       (acc, activity) => {
